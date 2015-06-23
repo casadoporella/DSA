@@ -89,19 +89,19 @@ void *List_remove(List *list, ListNode *node)
 {
   void *result = NULL;
 
-  check(list->first && list->last, "Quieres remover nodos de una lista vacia");
-  check(node, "El nodo no puede ser null");
+  check(list->first && list->last, "List is empty.");
+  check(node, "node can't be NULL");
 
   if(node == list->first && node == list->last) {
     list->first = NULL;
     list->last = NULL;
   } else if(node == list->first) {
     list->first = node->next;
-    check(list->first != NULL, "list->first no puede ser NULL");
+    check(list->first != NULL, "Invalid list, somehow got a first that is NULL.");
     list->first->prev = NULL;
   } else if(node == list->last) {
     list->last = node->prev;
-    check(list->last != NULL, "list->last no puede ser NULL");
+    check(list->last != NULL, "Invalid list, somehow got a next that is NULL.");
     list->last->next = NULL;
   } else {
     node->prev->next = node->next;
