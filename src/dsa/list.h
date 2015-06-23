@@ -11,6 +11,7 @@ typedef struct ListNode {
   void *value;
 }ListNode;
 
+
 typedef struct List {
   int count;
   struct ListNode *first;
